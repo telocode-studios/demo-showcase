@@ -40,6 +40,29 @@
       margin-bottom: 14px;
     }
     header p { color: var(--muted); font-size: 18px; max-width: 620px; margin: 0 auto; }
+    .topnav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 28px;
+    }
+    .topnav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid var(--border);
+      background: var(--card);
+      transition: border-color .15s, background .15s, transform .05s;
+    }
+    .topnav a:hover { border-color: var(--accent); background: var(--accent-soft); }
+    .topnav a:active { transform: translateY(1px); }
     .badge {
       display: inline-block;
       margin-bottom: 22px;
@@ -59,6 +82,7 @@
       border-radius: 14px;
       padding: 32px;
       margin-bottom: 28px;
+      scroll-margin-top: 24px;
     }
     .demo-head {
       display: flex;
@@ -165,6 +189,11 @@
     <div class="wrap">
       <span class="badge">🚧 持續更新中 · Demo page</span>
       <h1>專案 Demo</h1>
+      <nav class="topnav">
+        <a href="#demo1">🤖 ROS2 機器人模擬</a>
+        <a href="#demo2">🗣️ 台語語音對話</a>
+        <a href="#demo3">🚶 行人速度判識</a>
+      </nav>
     </div>
   </header>
 
