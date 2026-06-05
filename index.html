@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Side Projects Demo｜新創競賽展示</title>
+  <meta name="description" content="三個 side project 的 demo 展示：簡介、影片、實測連結與原始碼。" />
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-soft: rgba(88, 166, 255, 0.12);
+      --green: #3fb950;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC",
+        "Microsoft JhengHei", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 80px 20px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    header h1 {
+      font-size: clamp(28px, 5vw, 44px);
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+    }
+    header p { color: var(--muted); font-size: 18px; max-width: 620px; margin: 0 auto; }
+    .badge {
+      display: inline-block;
+      margin-bottom: 22px;
+      padding: 5px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    /* Demo cards */
+    main { padding: 56px 0 40px; }
+    .demo {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 28px;
+    }
+    .demo-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .demo-num {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+    .demo h2 { font-size: 24px; letter-spacing: -0.3px; }
+    .tag {
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .tag.live { color: var(--green); border-color: rgba(63, 185, 80, 0.4); }
+    .demo .desc { color: var(--muted); margin: 14px 0 22px; }
+
+    /* Video frame */
+    .video {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #0a0d12;
+      border: 1px dashed var(--border);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 14px;
+      overflow: hidden;
+      margin-bottom: 22px;
+    }
+    .video iframe, .video video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Buttons */
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: transparent;
+      transition: border-color .15s, background .15s, transform .05s;
+    }
+    .btn:hover { border-color: var(--accent); background: var(--accent-soft); }
+    .btn:active { transform: translateY(1px); }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .btn.primary:hover { background: #4493e0; }
+    .btn.disabled { opacity: .45; pointer-events: none; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 20px 64px;
+      color: var(--muted);
+      font-size: 14px;
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <span class="badge">🚧 持續更新中 · Demo page</span>
+      <h1>Side Projects Demo</h1>
+      <p>三個 side project 的展示頁，含簡介、影片、線上實測與原始碼。歡迎評審直接點擊體驗。</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- ===== Demo 1：可實測 + 影片 ===== -->
+    <section class="demo" id="demo1">
+      <div class="demo-head">
+        <span class="demo-num">Demo 1</span>
+        <h2>專案名稱一</h2>
+        <span class="tag live">● 可線上實測</span>
+        <span class="tag">影片展示</span>
+      </div>
+      <p class="desc">
+        在此一句話說明這個專案解決什麼問題、給誰用、最大亮點是什麼。（待補充）
+      </p>
+      <div class="video">
+        <!-- 影片就緒後，把下行換成 YouTube iframe，例如：
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe> -->
+        🎬 影片準備中
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="#" target="_blank" rel="noopener">▶ 線上實測</a>
+        <a class="btn" href="#" target="_blank" rel="noopener">⌥ GitHub 原始碼</a>
+        <a class="btn" href="#" target="_blank" rel="noopener">📄 使用說明</a>
+      </div>
+    </section>
+
+    <!-- ===== Demo 2：可實測 + 影片 ===== -->
+    <section class="demo" id="demo2">
+      <div class="demo-head">
+        <span class="demo-num">Demo 2</span>
+        <h2>專案名稱二</h2>
+        <span class="tag live">● 可線上實測</span>
+        <span class="tag">影片展示</span>
+      </div>
+      <p class="desc">
+        在此一句話說明這個專案解決什麼問題、給誰用、最大亮點是什麼。（待補充）
+      </p>
+      <div class="video">
+        🎬 影片準備中
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="#" target="_blank" rel="noopener">▶ 線上實測</a>
+        <a class="btn" href="#" target="_blank" rel="noopener">⌥ GitHub 原始碼</a>
+        <a class="btn" href="#" target="_blank" rel="noopener">📄 使用說明</a>
+      </div>
+    </section>
+
+    <!-- ===== Demo 3：僅影片展示 ===== -->
+    <section class="demo" id="demo3">
+      <div class="demo-head">
+        <span class="demo-num">Demo 3</span>
+        <h2>專案名稱三</h2>
+        <span class="tag">影片展示</span>
+      </div>
+      <p class="desc">
+        在此一句話說明這個專案解決什麼問題、給誰用、最大亮點是什麼。（待補充）
+      </p>
+      <div class="video">
+        🎬 影片準備中
+      </div>
+      <div class="actions">
+        <a class="btn" href="#" target="_blank" rel="noopener">⌥ GitHub 原始碼</a>
+        <a class="btn" href="#" target="_blank" rel="noopener">📄 使用說明</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="wrap">
+    <p>© 2026 · 新創競賽 Side Projects Demo · 內容持續更新中</p>
+  </footer>
+</body>
+</html>
