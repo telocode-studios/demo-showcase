@@ -111,6 +111,16 @@
       height: 100%;
       border: 0;
     }
+    .video-cap {
+      font-size: 14px;
+      color: var(--muted);
+      margin: -12px 0 22px;
+    }
+    .video-cap .label {
+      color: var(--accent);
+      font-weight: 600;
+      margin-right: 6px;
+    }
 
     /* Buttons */
     .actions { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -208,8 +218,13 @@
         運用網路上可取得的線上影像辨識行人，計算行人速度，提供後續合作夥伴發展行人相關應用。目前已完成行人追蹤，並可計算行人與相機之間的距離。
       </p>
       <div class="video">
-        <iframe src="https://www.youtube.com/embed/aHr4emH53Xw" title="行人速度判識 Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/aHr4emH53Xw" title="行人速度判識 Demo 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
+      <p class="video-cap"><span class="label">影片 1</span>左側是實際影片，右側是計算景深。</p>
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/uRsWbkhb5h0" title="行人速度判識 Demo 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="video-cap"><span class="label">影片 2</span>僅顯示右側景深，bounding box 上方數字為距離。</p>
     </section>
 
   </main>
