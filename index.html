@@ -152,6 +152,38 @@
       margin: 28px 0;
     }
 
+    /* Spec / roadmap lists */
+    .specs { margin: 0 0 22px; }
+    .specs .label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 16px 0 6px;
+    }
+    .specs ul { list-style: none; }
+    .specs li {
+      color: var(--muted);
+      font-size: 15px;
+      padding-left: 18px;
+      position: relative;
+    }
+    .specs li::before {
+      content: "›";
+      position: absolute;
+      left: 4px;
+      color: var(--accent);
+    }
+    .note {
+      font-size: 14px;
+      color: var(--muted);
+      background: var(--accent-soft);
+      border-left: 3px solid var(--accent);
+      padding: 10px 14px;
+      border-radius: 0 8px 8px 0;
+      margin: 0 0 22px;
+    }
+
     /* Buttons */
     .actions { display: flex; gap: 12px; flex-wrap: wrap; }
     .btn {
@@ -191,17 +223,87 @@
       <span class="badge">🚧 持續更新中 · Demo page</span>
       <h1>專案 Demo</h1>
       <nav class="topnav">
-        <a href="#demo1">🤖 ROS2 機器人模擬</a>
-        <a href="#demo2">🗣️ 台語語音對話</a>
-        <a href="#demo3">🚶 行人速度判識</a>
+        <a href="#demo-taigi">🗣️ 台語語音對話</a>
+        <a href="#demo-virtual">🎭 虛擬人物</a>
+        <a href="#demo-pedestrian">🚶 行人速度/距離量測</a>
+        <a href="#demo-ros2">🤖 ROS2 機器人模擬</a>
       </nav>
     </div>
   </header>
 
   <main class="wrap">
 
-    <!-- ===== Demo 1：可實測 + 影片 ===== -->
-    <section class="demo" id="demo1">
+    <!-- ===== 台語語音對話：影片展示 ===== -->
+    <section class="demo" id="demo-taigi">
+      <div class="demo-head">
+        <span class="demo-num">🗣️</span>
+        <h2>台語語音對話</h2>
+        <span class="tag">影片展示</span>
+      </div>
+      <p class="desc">
+        以 Breeze-ASR-26 + Gemma 4–12B + BreezyVoice 組成語音對話流程，部署於 Modal。目前可聽懂台語語音輸入，回覆則以國語輸出。
+      </p>
+      <div class="specs">
+        <span class="label">下一階段</span>
+        <ul>
+          <li>以不同模型進行比較測試</li>
+          <li>在不同平台或地端設備上測試比較</li>
+        </ul>
+      </div>
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/Ay0ijwRGUDk" title="台語語音對話 Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <!-- ===== 虛擬人物測試：可實測 ===== -->
+    <section class="demo" id="demo-virtual">
+      <div class="demo-head">
+        <span class="demo-num">🎭</span>
+        <h2>虛擬人物測試</h2>
+        <span class="tag live">● 可線上實測</span>
+      </div>
+      <p class="desc">
+        驗證虛擬人物呈現、待機動作、說話狀態與嘴型同步。目前先以免費資源修改測試可行性，語音使用本地瀏覽器 TTS。
+      </p>
+      <div class="specs">
+        <span class="label">下一階段</span>
+        <ul>
+          <li>讓動作與表情模擬得更自然</li>
+          <li>串接 TTS 服務提升語音品質</li>
+        </ul>
+      </div>
+      <div class="video">
+        <iframe src="https://virtual-role-demo-001.netlify.app/" title="虛擬人物線上實測" allow="autoplay; microphone; encrypted-media"></iframe>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="https://virtual-role-demo-001.netlify.app/" target="_blank" rel="noopener">▶ 線上實測（新分頁開啟）</a>
+      </div>
+    </section>
+
+    <!-- ===== 行人速度/距離量測：僅影片展示 ===== -->
+    <section class="demo" id="demo-pedestrian">
+      <div class="demo-head">
+        <span class="demo-num">🚶</span>
+        <h2>行人速度/距離量測</h2>
+        <span class="tag">影片展示</span>
+      </div>
+      <p class="desc">
+        運用網路上可取得的線上影像辨識行人，計算行人速度，提供後續合作夥伴發展行人相關應用。目前已完成行人追蹤，並可計算行人與相機之間的距離。
+      </p>
+      <p class="note">目前 bounding box 顯示的是行人與相機的距離。</p>
+      <p class="video-cap"><span class="label">影片 1</span>左側是實際影片，右側是計算景深。</p>
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/aHr4emH53Xw" title="行人速度/距離量測 Demo 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <hr class="vid-sep">
+      <p class="video-cap"><span class="label">影片 2</span>僅顯示右側景深，bounding box 上方數字為距離。</p>
+      <div class="video">
+        <iframe src="https://www.youtube.com/embed/uRsWbkhb5h0" title="行人速度/距離量測 Demo 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <!-- ===== ROS2 機器人模擬：準備中（置於最後） ===== -->
+    <section class="demo" id="demo-ros2">
       <div class="demo-head">
         <span class="demo-num">🤖</span>
         <h2>ROS2 機器人模擬</h2>
@@ -219,47 +321,6 @@
       <div class="actions">
         <a class="btn primary" href="#" target="_blank" rel="noopener">▶ 線上實測</a>
         <a class="btn" href="#" target="_blank" rel="noopener">📄 使用說明</a>
-      </div>
-    </section>
-
-    <!-- ===== Demo 2：可實測 + 影片 ===== -->
-    <section class="demo" id="demo2">
-      <div class="demo-head">
-        <span class="demo-num">🗣️</span>
-        <h2>台語語音對話</h2>
-        <span class="tag live">● 可線上實測</span>
-        <span class="tag">影片展示</span>
-      </div>
-      <p class="desc">
-        在此一句話說明這個專案解決什麼問題、給誰用、最大亮點是什麼。（待補充）
-      </p>
-      <div class="video">
-        🎬 影片準備中
-      </div>
-      <div class="actions">
-        <a class="btn primary" href="#" target="_blank" rel="noopener">▶ 線上實測</a>
-        <a class="btn" href="#" target="_blank" rel="noopener">📄 使用說明</a>
-      </div>
-    </section>
-
-    <!-- ===== Demo 3：僅影片展示 ===== -->
-    <section class="demo" id="demo3">
-      <div class="demo-head">
-        <span class="demo-num">🚶</span>
-        <h2>行人速度判識</h2>
-        <span class="tag">影片展示</span>
-      </div>
-      <p class="desc">
-        運用網路上可取得的線上影像辨識行人，計算行人速度，提供後續合作夥伴發展行人相關應用。目前已完成行人追蹤，並可計算行人與相機之間的距離。
-      </p>
-      <p class="video-cap"><span class="label">影片 1</span>左側是實際影片，右側是計算景深。</p>
-      <div class="video">
-        <iframe src="https://www.youtube.com/embed/aHr4emH53Xw" title="行人速度判識 Demo 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <hr class="vid-sep">
-      <p class="video-cap"><span class="label">影片 2</span>僅顯示右側景深，bounding box 上方數字為距離。</p>
-      <div class="video">
-        <iframe src="https://www.youtube.com/embed/uRsWbkhb5h0" title="行人速度判識 Demo 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </section>
 
